@@ -3,7 +3,7 @@
 import discord
 
 # Token taken from developer portal. Should move this to another file.
-api_token = "NDk3NDMxMzkyNzg4MTUyMzUw.XmJsOQ.MbZACKmWlGbGHyRjRfF8K6Mdd1k"
+api_token = "NDk3NDMxMzkyNzg4MTUyMzUw.XmU2TA.gVf7WBjiXMCSIzZH5cUNp8cKz7U"
 
 # Setup the client (A client is a low level bot, so basically initialise the bot)
 client = discord.Client()
