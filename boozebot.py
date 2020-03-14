@@ -2,8 +2,12 @@
 # boozebot.py
 import discord
 
-# Token taken from developer portal. Should move this to another file.
-api_token = "NDk3NDMxMzkyNzg4MTUyMzUw.XmU2TA.gVf7WBjiXMCSIzZH5cUNp8cKz7U"
+# Load api token using dotenv. 
+# Secret token taken from developer portal, stored in .env file.
+import os
+from dotenv import load_dotenv
+load_dotenv()
+api_token = os.getenv("TOKEN")
 
 # Setup the client (A client is a low level bot, so basically initialise the bot)
 client = discord.Client()
