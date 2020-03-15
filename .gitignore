@@ -1,3 +1,5 @@
 *.env
 
 .idea/
+
+src/cogs/__pycache__/
