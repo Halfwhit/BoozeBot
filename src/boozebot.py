@@ -45,20 +45,3 @@ for extension in [f.replace('.py', '') for f in listdir(cogs_dir) if isfile(join
     # Start the bot and start listening for events
     bot.run(api_token)
 
-# Move to a cog, change to bot api
-#    @client.event
-#    async def on_message(message):
-#        if message.author == client.user:
-#            return
-#
-#        if message.content == 'F':
-#            await message.channel.send("F")
-#
-#        if 'RIP' in message.content:
-#            await message.add_reaction("\U0001F1EB")
-#
-#        if message.content == '!ping':
-#            await message.channel.send("pong!")
-#
-#        if message.content.startswith('!hello'):
-#            await message.channel.send('Hello {0.author.mention}'.format(message))
