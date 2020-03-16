@@ -1,5 +1,7 @@
+discord
 # This is an implicit value, here for clarity. Where the python packages required can be found.
 --index-url https://pypi.python.org/simple/
 
 # Dependency list
 discord.py==1.3.2
+python-dotenv==0.12.0
