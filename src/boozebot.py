@@ -15,6 +15,7 @@ api_token = os.getenv("TOKEN")
 cogs_dir = "cogs"
 bot = commands.Bot(command_prefix='!')
 
+
 # This is called after the bot has logged in.
 # Prints to the terminal, not the server.
 @bot.event
@@ -23,11 +24,20 @@ async def on_ready():
     print(bot.user.name)
     print(bot.user.id)
 
+    for extension in [f.replace('.py', '') for f in listdir(cogs_dir) if isfile(join(cogs_dir, f))]:
+        try:
+            bot.load_extension(cogs_dir + '.' + extension)
+            print(f'Loaded extension: {extension}')
+        except Exception as e:
+            print(f'Failed to load extension {extension}.')
+
+
 # Bot command to load a cog on the fly. Add error checking.
 @bot.command()
 async def load(extension_name : str):
     bot.load_extension(extension_name)
     await bot.say("{} loaded.".format(extension_name))
+
 
 # Bot command to unload a cog on the fly. Add error checking.
 @bot.command()
@@ -35,13 +45,6 @@ async def unload(extension_name : str):
     bot.unload_extension(extension_name)
     await bot.say("{} unloaded.".format(extension_name))
 
-# This code block is basically the main entry point of the program
-for extension in [f.replace('.py', '') for f in listdir(cogs_dir) if isfile(join(cogs_dir, f))]:
-    try:
-        bot.load_extension(cogs_dir + '.' + extension)
-        print(f'Loaded extension: {extension}')
-    except Exception as e:
-        print(f'Failed to load extension {extension}.')
-    # Start the bot and start listening for events
-    bot.run(api_token)
+
+bot.run(api_token)
 

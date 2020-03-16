@@ -1,3 +1,4 @@
+import discord
 from discord.ext import commands
 
 
@@ -10,13 +11,13 @@ class Boozers(commands.Cog):
         await ctx.send("pong!")
 
     @commands.command()
-    async def hello(self, ctx, *, member: discord.Member):
-        await ctx.send(f'Hello {member.display_name}')
+    async def hello(self, ctx):
+        await ctx.send(f'Hello {ctx.author.display_name}')
 
     @commands.Cog.listener()
-    async def on_message(self, ctx, message):
+    async def on_message(self, message):
 
-        if message.author == self.user:  # Abort if the message was ours
+        if message.author == self.bot.user:  # Abort if the message was ours
             return
 
         if message.content == 'F':
